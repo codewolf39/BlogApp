@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
+const postRoute = require("./routes/post");
 
 dotenv.config({ path: "./.env" });
 app.use(express.json());
@@ -26,6 +27,7 @@ app.use(morgan("dev"));
 
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/user", userRoute);
+app.use("/api/v1/post", postRoute);
 
 app.listen(5000, (req, res) => {
   console.log("Backend is running");
